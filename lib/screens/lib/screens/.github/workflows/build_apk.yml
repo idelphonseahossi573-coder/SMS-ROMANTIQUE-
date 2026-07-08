@@ -1,0 +1,31 @@
+name: Build APK
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch: # permet de lancer le build manuellement depuis le tÃ©lÃ©phone
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Installer Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.24.0'
+          channel: 'stable'
+
+      - name: Installer les dÃ©pendances
+        run: flutter pub get
+
+      - name: Compiler l'APK
+        run: flutter build apk --release
+
+      - name: Publier l'APK comme fichier tÃ©lÃ©chargeable
+        uses: actions/upload-artifact@v4
+        with:
+          name: sms-romantique-apk
+          path: build/app/outputs/flutter-apk/app-release.apk
+          
