@@ -1,0 +1,25 @@
+name: sms_romantique
+description: "SMS Romantique - Messages doux, drÃ´les et citations pour cÃ©libataires"
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.6
+  sqflite: ^2.3.0          # Base de donnÃ©es locale (Android & iOS)
+  path: ^1.8.3
+  url_launcher: ^6.2.2      # Envoi direct SMS / WhatsApp
+  share_plus: ^7.2.1        # Partage natif (copier/partager)
+  shared_preferences: ^2.2.2 # Sauvegarde rapide des favoris
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+
+flutter:
+  uses-material-design: true
